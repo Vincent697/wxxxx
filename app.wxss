@@ -1,0 +1,44 @@
+/**app.wxss**/
+page{
+  height: 100%;
+  background: #F0F0F2;
+  font-size: 11pt;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.searchbox{
+  margin: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.select-label{
+  height: 30px;
+  line-height: 30px;
+}
+.input-box{
+  margin-left: 15px;
+  flex: 1;
+  display: block;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ffffff;
+}
+.input-box input{
+  margin: 0 15rpx;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.clearfix:before,.clearfix:after{ 
+    content:""; 
+    display:table; 
+} 
+.clearfix:after{clear:both;} 

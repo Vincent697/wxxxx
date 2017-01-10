@@ -1,0 +1,44 @@
+.search-panel {
+  padding: 15rpx;
+  background: #fff;
+}
+
+.search-panel .input-box {
+  background: #f0f0f2;
+}
+
+.wrap{
+    margin: 30rpx 30rpx 0;
+}
+.wrap-title{
+    position: relative;
+}
+.wrap-title .title{
+    display: block;
+    margin-bottom: 20rpx;
+}
+.wrap-title .oprate{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    color: #3385FF;
+}
+.search-block {
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start
+}
+
+.search-block .item {
+    background: #FFFFFF;
+    padding: 10rpx 15rpx;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 10pt;
+}
+.red{
+    color: red;
+}

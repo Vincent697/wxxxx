@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/search/search",
+    "pages/index/index",
+    "pages/details/details",
+    "pages/condition/condition",
+    
+    "pages/searchlist/searchlist",
+    "pages/searchall/searchall"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3385FF",
+    "navigationBarTitleText": "定额查询",
+    "navigationBarTextStyle": "white"
+  }
+}

@@ -1,0 +1,52 @@
+<view class="content">
+  <view class="search-panel">
+    <view class="searchbox">
+
+      <!-- 条件选择 -->
+      <view class="select-label">
+        <text >查项目</text>
+        <view class="" hidden>
+          <view data-val="查项目">查项目</view>
+          <view data-val="查材料">查材料</view>
+        </view>
+      </view>
+      <view class="input-box">
+        <form name="searchword" bindsubmit="submitForm">
+          <input name="keywords" placeholder="定额查询" />
+        </form>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门搜索 -->
+  <view class="wrap hot-sarch">
+    <view class="wrap-title">
+      <text class="title">热门搜索</text>
+      <view class="oprate">换一换</view>
+    </view>
+    <view class="search-block">
+      <block wx:if="{{hottopic}}">
+        <view bindtap="getval" wx:for="{{hottopic}}" wx:for-item="hot" class="item" hover-class="red">{{hot}}</view>
+      </block>
+      <block wx:else>
+        <view class="item">暂无热门搜索</view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 搜索历史 -->
+  <view class="wrap history">
+    <view class="wrap-title">
+      <text class="title">搜索历史</text>
+      <view bindtap="clearhistory" class="oprate">清除</view>
+    </view>
+    <view class="search-block">
+      <block wx:if="{{history}}">
+        <view wx:for="{{history}}" wx:for-item="his" class="item">{{his}}</view>
+      </block>
+      <block wx:else>
+        <view class="item">暂无热门搜索</view>
+      </block>
+    </view>
+  </view>
+</view>

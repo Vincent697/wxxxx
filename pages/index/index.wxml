@@ -1,0 +1,16 @@
+
+<!--index.wxml-->
+<view class="content">
+  <view class="zl-logo">
+    <image src="{{logosrc}}" mode="widthFix"></image>
+  </view>
+  <view class="searchbox">
+    <!-- 条件选择 -->
+    <view class="select-label">
+      <text>北京：</text>
+    </view>
+    <view class="input-box">
+      <input name="keywords" placeholder="定额查询" />
+    </view>
+  </view>
+</view>
