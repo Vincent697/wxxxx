@@ -1,0 +1,71 @@
+<view class="content">
+  <view class="search-panel">
+    <view class="searchbox">
+
+      <!-- 条件选择 -->
+      <view class="select-label">
+        <text bindtap="showSelect">{{defaultAct}}</text>
+        <view class="arrow-down"></view>
+        <view class="select-item" hidden="{{showselect ? true : false}}">
+          <view bindtap="selectAct" class="items" data-val="查项目">查项目</view>
+          <view bindtap="selectAct" class="items" data-val="查材料">查材料</view>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="input-box">
+        <input name="keywords" placeholder="定额查询" bindconfirm="submitForm" />
+      </view>
+    </view>
+    <view class="cancel">取消</view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="search-result">
+    <view class="result-total">共搜索到
+      <text>5</text> 本定额的
+      <text>1179</text> 项定额项目包含“钢筋”</view>
+
+    <!-- 本 -->
+    <view class="result-item clearfix">
+      <view class="item-title">北京 > 北京市房屋修缮工程单位估价表（2005）</view>
+      <view class="de-wrap">
+        <view class="de-item">
+          <view class="de-info">
+            <view>混凝土及钢筋混凝土拆除 预制钢筋混凝土 楼板</view>
+            <view class="info-li">
+              <view>定额号：1-126   </view>
+              <view>单位：m³</view>
+              <view>基价：96.69</view>
+            </view>
+          </view>
+          <view class="detail-inf">
+            <!--<image src="/image/arrow_right.png" mode="aspectFill"></image>-->
+          </view>
+        </view>
+        <view class="de-item">
+        </view>
+        <view class="de-item">
+        </view>
+        <view class="de-item">
+        </view>
+      </view>
+      <view class="get-all">>>查看更多</view>
+    </view>
+
+    <!-- 本 -->
+    <view class="result-item clearfix">
+      <view class="item-title">北京 > 北京市房屋修缮工程单位估价表（2005）</view>
+      <view class="de-wrap">
+        <view class="de-item">
+        </view>
+        <view class="de-item">
+        </view>
+        <view class="de-item">
+        </view>
+        <view class="de-item">
+        </view>
+      </view>
+      <view class="get-all">>>查看更多</view>
+    </view>
+  </view>
+</view>

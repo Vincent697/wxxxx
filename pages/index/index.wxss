@@ -1,17 +1,65 @@
 /**index.wxss**/
-.content{
+page {
+  background: #ffffff;
+}
+.content {
   display: block;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
   font-size: 11pt;
 }
-.zl-logo{
+
+.zl-logo {
   margin: 0 auto;
 }
-.zl-logo image{
+
+.zl-logo image {
+  width: 70%;
   display: block;
-  margin: 30px auto;
-  width: 30%;
-  border-radius: 100%;
+  margin: 0 auto;
+}
+.searchbox {
+  display: flex;
+  flex-direction: row;
+  margin: 0 30rpx;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px #d2d2d2;
+}
+.select-label {
+  height: 40px;
+  line-height: 40px;
+  padding-right: 25px;
+  background: url(/image/arrow_down.png) no-repeat right center;
+  background-size: 30%;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.line{
+  width: 1px;
+  background: #bdbdbd;
+  margin:0 35rpx;
+}
+.input-box {
+  flex: 1;
+  display: block;
+  border-radius: 5px;
+  height: 40px;
+  line-height: 40px;
+  background: url(/image/search_icons.png) no-repeat left center;
+  background-size: 9%;
+}
+
+.input-box input {
+  margin: 0 15rpx;
+  height: 30px;
+  line-height: 30px;
+}
+
+.input-box {
+  color: #bcbcbc;
+  padding-left: 40px;
+  font-size: 12pt;
+  font-weight: bold;
 }

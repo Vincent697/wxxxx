@@ -3,7 +3,7 @@
 var app = getApp()
 Page({
   data: {
-    logosrc: '../../image/logo.png'
+    logosrc: '../../image/de_logo.png'
   },
   //事件处理函数
   bindViewTap: function() {
@@ -20,6 +20,17 @@ Page({
       that.setData({
         userInfo:userInfo
       })
+    })
+  },
+  directSearch: function(){
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
+  directCondition: function(){
+    console.log("a");
+    wx.navigateTo({
+      url: '../condition/condition'
     })
   }
 })

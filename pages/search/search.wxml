@@ -1,35 +1,35 @@
 <view class="content">
   <view class="search-panel">
     <view class="searchbox">
-
       <!-- 条件选择 -->
       <view class="select-label">
-        <text >查项目</text>
-        <view class="" hidden>
-          <view data-val="查项目">查项目</view>
-          <view data-val="查材料">查材料</view>
+        <text bindtap="showSelect">{{defaultAct}}</text>
+        <view class="arrow-down"></view>
+        <view class="select-item" hidden="{{showselect ? true : false}}">
+          <view bindtap="selectAct" class="items" data-val="查项目">查项目</view>
+          <view bindtap="selectAct" class="items" data-val="查材料">查材料</view>
         </view>
       </view>
+      <view class="line"></view>
       <view class="input-box">
-        <form name="searchword" bindsubmit="submitForm">
-          <input name="keywords" placeholder="定额查询" />
-        </form>
+          <input name="keywords" placeholder="定额查询" bindconfirm="submitForm" />
       </view>
     </view>
+    <view class="cancel">取消</view>
   </view>
 
   <!-- 热门搜索 -->
   <view class="wrap hot-sarch">
     <view class="wrap-title">
       <text class="title">热门搜索</text>
-      <view class="oprate">换一换</view>
+      <view class="oprate change">换一换</view>
     </view>
     <view class="search-block">
-      <block wx:if="{{hottopic}}">
+      <block wx:if="{{hottopic.length>0}}">
         <view bindtap="getval" wx:for="{{hottopic}}" wx:for-item="hot" class="item" hover-class="red">{{hot}}</view>
       </block>
       <block wx:else>
-        <view class="item">暂无热门搜索</view>
+        <text>暂无热门搜索</text>
       </block>
     </view>
   </view>
@@ -38,14 +38,14 @@
   <view class="wrap history">
     <view class="wrap-title">
       <text class="title">搜索历史</text>
-      <view bindtap="clearhistory" class="oprate">清除</view>
+      <view bindtap="clearhistory" class="oprate clear">清除全部</view>
     </view>
     <view class="search-block">
-      <block wx:if="{{history}}">
+      <block wx:if="{{history.length>0}}">
         <view wx:for="{{history}}" wx:for-item="his" class="item">{{his}}</view>
       </block>
       <block wx:else>
-        <view class="item">暂无热门搜索</view>
+        <text>暂无热门搜索</text>
       </block>
     </view>
   </view>
