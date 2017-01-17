@@ -1,0 +1,28 @@
+<view class="detail">
+  <view class="deta-name">定额编号：{{itemrow.code}}</view>
+  <view class="deta-describe">定额项目：{{itemrow.name}}</view>
+  <view class="deta-unit">单位：{{itemrow.unit}}</view>
+  <block wx:for="{{arraymars}}" wx:for-index="idx">
+    <view class="con-view">
+      <view class="title">材料类别：{{item[0].mtname}}</view>
+      <view  wx:for="{{item}}" wx:for-index="idx2"  class="con-biglist">
+        <view class="con-list">
+          <view class="list-view1">
+            <view>材料编号：{{item.code}}</view>
+            <view>材料名称：{{item.name}}</view>
+            <view>单位：{{item.unit}}</view>
+          </view>
+          <view class="list-view2">
+            <view>单价(元)</view>
+            <view>{{item.price}}</view>
+            <view>数量：{{item.count}}</view>
+          </view>
+          <view class="list-view2 norightbor">
+            <view>总计(元)</view>
+            <view>￥{{item.total}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

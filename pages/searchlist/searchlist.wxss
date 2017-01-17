@@ -1,7 +1,7 @@
 page {
   background: #ebebeb;
 }
-
+/* search start*/
 .search-panel {
   display: flex;
   flex-direction: row;
@@ -20,31 +20,39 @@ page {
 .select-label {
   height: 25px;
   line-height: 25px;
-  padding-right: 25px;
-  background: url(/image/arrow_down.png) no-repeat right center;
-  background-size: 20%;
   position: relative;
+  padding-right: 35rpx;
+}
+
+.select-label image {
+  margin-left: 5px;
+  position: absolute;
+  top: 10px;
 }
 
 .line {
   width: 1px;
   background: #bdbdbd;
-  margin: 0 35rpx;
+  margin: 0 30rpx;
 }
 
 .input-box {
+  display: flex;
   flex: 1;
-  display: block;
   border-radius: 5px;
   height: 25px;
   line-height: 25px;
-  background: url(/image/search_icons.png) no-repeat left center;
-  background-size: 9%;
+  color: #bcbcbc;
 }
 
-.input-box {
-  color: #bcbcbc;
-  padding-left: 30px;
+.input-box image {
+  position: relative;
+  top: 4px;
+  margin-right: 5px;
+}
+
+.input-box input {
+  flex: 1;
 }
 
 .cancel {
@@ -72,6 +80,7 @@ page {
   height: 25px;
   line-height: 25px;
 }
+/*search end*/
 
 .search-result {
   background: #f5f5f5;
@@ -118,10 +127,20 @@ page {
 
 .info-li view {
   flex: 1;
+  font-size: 14px;
 }
 
 .detail-inf {
-  width: 10%;
+  width: 8%;
+  vertical-align: middle;
+  position: relative;
+}
+
+.detail-inf image {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .get-all {

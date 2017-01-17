@@ -1,0 +1,53 @@
+page {
+  background: #ffffff;
+}
+
+.result-total text {
+  color: #017ec1;
+  font-size: 12pt;
+}
+
+.result-item {
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+
+.item-title {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #cacaca;
+}
+.de-wrap {
+  margin: 0 30rpx 0;
+}
+.de-item {
+  padding: 20rpx 0;
+  display: flex;
+  background: #ffffff;
+  min-height: 40px;
+  border-bottom: 1rpx solid #cacaca;
+}
+.de-info {
+  flex: 1;
+}
+.info-li {
+  display: flex;
+}
+.info-li view {
+  flex: 1;
+  font-size: 14px;
+}
+.detail-inf {
+  width: 8%;
+  vertical-align: middle;
+  position: relative
+}
+.detail-inf image{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.get-all {
+  text-align: center;
+  padding: 30rpx;
+}

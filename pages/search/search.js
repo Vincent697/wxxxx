@@ -2,39 +2,53 @@ Page({
     data: {
         history: [],
         hottopic: [],
-        defaultAct: '查项目',
-        showselect: true
+        defaultAct: 1,
+        showselect: true,
+        cid: '',
+        cname: '',
+        pword: ''
     },
     onLoad: function (options) {
+
+        // 动态设置当前页标题
+        wx.setNavigationBarTitle({
+            title: '查询'
+        });
         let history = wx.getStorageSync('history') || [];
         let hottopic = wx.getStorageSync('hottopic') || [];
         let that = this;
         that.setData({
             history: history,
-            hottopic: hottopic
+            hottopic: hottopic,
+            cid: options.id || '100000',
+            cname: options.name
         });
-        console.log(this.data.history);
-        // 页面初始化 options为页面跳转所带来的参数
-        // wx.setStorage({
-        //     key: 'history',
-        //     data: ['asda', '维护的我', '范文芳', 'sdashuuh', 'dqwhduq', 'das', 'dq', 'd', 'dad']
-        // });
-        // wx.setStorage({
-        //     key: 'hottopic',
-        //     data: ['qwe', 'dqw', '地区稳定', '的请我厚度去外地', 'dqwdqwdqw']
-        // })
-    },
-    onReady: function () {
-        // 页面渲染完成
-    },
-    onShow: function () {
-        // 页面显示
-    },
-    onHide: function () {
-        // 页面隐藏
-    },
-    onUnload: function () {
-        // 页面关闭
+        // 获取热门搜索
+        wx.request({
+            url: 'https://ssl.zhulong.com/index.php?act=getnewlist&serverid=75',
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: { "Content-Type": "application/x-www-form-urlencoded" },
+            success: function (res) {
+                // success
+                let data = res.data;
+                if (data.errNo == 0) {
+                    let hottopic = [];
+                    for (let i = 0; i < data.result.newlists.length; i++) {
+                        hottopic.push(data.result.newlists[i])
+                    }
+
+                    that.setData({
+                        hottopic: hottopic
+                    })
+                }
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function () {
+                // complete
+            }
+        })
     },
     clearhistory: function () {
         let that = this;
@@ -50,13 +64,59 @@ Page({
         })
     },
     submitForm: function (e) {
-
         let keywords = e.detail.value;
+        // navigateTo serachlist
+        if (keywords.length > 0) {
+            // record to history
+            this.setHistory(keywords);
+            wx.navigateTo({
+                url: '../searchlist/searchlist?pword=' + keywords + '&cid=' + this.data.cid + '&defaultAct=' + this.data.defaultAct
+            });
+        }
+    },
+    selectSubmit: function (e) {
+        let keywords = e.currentTarget.dataset.val;
         // record to history
+        this.setHistory(keywords);
+        // navigateTo serachlist
+        wx.navigateTo({
+            url: '../searchlist/searchlist?pword=' + keywords + '&cid=' + this.data.cid + '&defaultAct=' + this.data.defaultAct
+        });
+    },
+    goDetail: function (e) {
+        let bookid = e.currentTarget.dataset.bookid;
+        let itemid = e.currentTarget.dataset.itemsid;
+        let viewname=e.currentTarget.dataset.viewname
+        wx.navigateTo({
+            url: '../detail/detail?book_id=' + bookid + '&item_id=' + itemid +'&viewname=' + viewname
+        })
+    },
+    showSelect: function () {
+        this.setData({
+            showselect: false
+        })
+    },
+    selectAct: function (e) {
+        this.setData({
+            defaultAct: e.currentTarget.dataset.val,
+            showselect: true
+        });
+    },
+    setPword: function (e) {
+        this.setData({
+            pword: e.detail.value
+        })
+    },
+    redirectIndex: function () {
+        wx.redirectTo({
+            url: '../index/index'
+        })
+    },
+    setHistory: function (keywords) {
         let history = this.data.history;
         for (let i = 0, length = history.length; i < length; i++) {
             if (history[i] == keywords) {
-                history.splice(keywords);
+                history.splice(i, 1);
                 return;
             }
         }
@@ -71,19 +131,25 @@ Page({
             key: 'history',
             data: history
         });
-        // navigateTo serachlist
-        wx.navigateTo({
-            url: '../searchlist/searchlist'
-        });
     },
-    showSelect: function () {
+    gereralArrR: function (arr) {// 从一个数组中随机返回任意n个值组成新的数组
+        var tempArr = [];
+        for (var i = 0, len = arr.length; i < len; i++) {
+            var randomIndex = parseInt(Math.random() * i);
+            var temp = arr[randomIndex];
+            arr[randomIndex] = arr[i];
+            arr[i] = temp;
+        }
         this.setData({
-            showselect: false
+            hottopic: arr
         })
     },
-    selectAct: function (e) {
+    randomSelect: function () {
+        let arr = this.data.hottopic;
+        this.gereralArrR(arr);
+    },
+    closeSelect:function(e){
         this.setData({
-            defaultAct: e.target.dataset.val,
             showselect: true
         });
     }

@@ -4,68 +4,77 @@
 
       <!-- 条件选择 -->
       <view class="select-label">
-        <text bindtap="showSelect">{{defaultAct}}</text>
-        <view class="arrow-down"></view>
+        <text bindtap="showSelect">{{defaultAct==1? '查项目': '查材料'}}</text>
+        <image src="/image/arrow_down.png" mode="widthFix" style="width: 10px;"></image>
         <view class="select-item" hidden="{{showselect ? true : false}}">
-          <view bindtap="selectAct" class="items" data-val="查项目">查项目</view>
-          <view bindtap="selectAct" class="items" data-val="查材料">查材料</view>
+          <view bindtap="selectAct" class="items" data-val="1">查项目</view>
+          <view bindtap="selectAct" class="items" data-val="0">查材料</view>
         </view>
       </view>
       <view class="line"></view>
       <view class="input-box">
-        <input name="keywords" placeholder="定额查询" bindconfirm="submitForm" />
+        <image src="/image/search_icons.png" mode="widthFix" style="width: 18px;"></image>
+        <input name="keywords" value="{{pword}}" placeholder="定额查询" placeholder-class="placeholer" bindconfirm="submitForm" bindinput="setPword" />
       </view>
     </view>
-    <view class="cancel">取消</view>
+    <view class="cancel" bindtap="redirectIndex">取消</view>
   </view>
 
   <!-- 搜索结果 -->
-  <view class="search-result">
+  <view class="search-result" hidden="{{emptyresult ? true : false}}">
     <view class="result-total">共搜索到
-      <text>5</text> 本定额的
-      <text>1179</text> 项定额项目包含“钢筋”</view>
-
-    <!-- 本 -->
-    <view class="result-item clearfix">
-      <view class="item-title">北京 > 北京市房屋修缮工程单位估价表（2005）</view>
-      <view class="de-wrap">
-        <view class="de-item">
-          <view class="de-info">
-            <view>混凝土及钢筋混凝土拆除 预制钢筋混凝土 楼板</view>
-            <view class="info-li">
-              <view>定额号：1-126   </view>
-              <view>单位：m³</view>
-              <view>基价：96.69</view>
-            </view>
-          </view>
-          <view class="detail-inf">
-            <!--<image src="/image/arrow_right.png" mode="aspectFill"></image>-->
-          </view>
-        </view>
-        <view class="de-item">
-        </view>
-        <view class="de-item">
-        </view>
-        <view class="de-item">
-        </view>
-      </view>
-      <view class="get-all">>>查看更多</view>
+      <text>{{result.books.length}}</text> 本定额的
+      <text>{{result.dbcount == null? "0": result.dbcount}}</text> 项{{defaultAct==1?"定额项目":"材料"}}包含“{{result.pword}}”
     </view>
 
     <!-- 本 -->
-    <view class="result-item clearfix">
-      <view class="item-title">北京 > 北京市房屋修缮工程单位估价表（2005）</view>
-      <view class="de-wrap">
-        <view class="de-item">
-        </view>
-        <view class="de-item">
-        </view>
-        <view class="de-item">
-        </view>
-        <view class="de-item">
-        </view>
+    <block wx:for="{{result.books}}" wx:for-item="books">
+      <view class="result-item clearfix">
+        <view class="item-title">{{result.cat_name}} > {{books.name}}（{{books.pubyear}}）</view>
+
+        <!--搜项目-->
+        <block wx:if="{{books.items}}">
+          <view class="de-wrap">
+            <block wx:for="{{books.items}}" wx:for-item="items">
+              <view class="de-item" bindtap="godetail" data-itemsid="{{items.id}}" data-bookid="{{books.id}}" data-bookname="{{books.name}}" data-viewname="{{items.name}}">
+                <view class="de-info">
+                  <view>{{items.name}}</view>
+                  <view class="info-li">
+                    <view>定额号：{{items.code}} </view>
+                    <view>单位：{{items.unit}}</view>
+                    <view>基价：{{items.price}}</view>
+                  </view>
+                </view>
+                <view class="detail-inf">
+                  <image src="/image/arrow_right.png" style="width:14px;" mode="widthFix"></image>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class="get-all" bindtap="showAll" data-bookid="{{books.id}}" data-bookname="{{books.name}}">>>查看更多</view>
+        </block>
+        <block wx:else>
+          <view class="de-wrap">
+            <block wx:for="{{books.materials}}" wx:for-item="items">
+              <view class="de-item" bindtap="godetail" data-itemsid="{{items.itemid}}"  data-bookid="{{books.id}}" data-viewname="{{items.item.name}}" data-bookname="{{books.name}}">
+                <view class="de-info">
+                  <view>{{items.item.name}}</view>
+                  <view>材料：{{items.name}}</view>
+                  <view class="info-li">
+                    <view>编号：{{items.code}} </view>
+                    <view>单位：{{items.unit}}</view>
+                    <view>单价：{{items.price}}</view>
+                  </view>
+                </view>
+                <view class="detail-inf">
+                  <image src="/image/arrow_right.png" style="width:14px;" mode="widthFix"></image>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class="get-all" bindtap="showAll" data-bookid="{{books.id}}" data-bookname="{{books.name}}">>>查看更多</view>
+        </block>
       </view>
-      <view class="get-all">>>查看更多</view>
-    </view>
+    </block>
   </view>
 </view>

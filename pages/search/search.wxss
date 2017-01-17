@@ -1,3 +1,5 @@
+/* search start*/
+
 .search-panel {
   display: flex;
   flex-direction: row;
@@ -16,31 +18,39 @@
 .select-label {
   height: 25px;
   line-height: 25px;
-  padding-right: 25px;
-  background: url(/image/arrow_down.png) no-repeat right center;
-  background-size: 20%;
   position: relative;
+  padding-right: 35rpx;
+}
+
+.select-label image {
+  margin-left: 5px;
+  position: absolute;
+  top: 10px;
 }
 
 .line {
   width: 1px;
   background: #bdbdbd;
-  margin: 0 35rpx;
+  margin: 0 30rpx;
 }
 
 .input-box {
+  display: flex;
   flex: 1;
-  display: block;
   border-radius: 5px;
   height: 25px;
   line-height: 25px;
-  background: url(/image/search_icons.png) no-repeat left center;
-  background-size: 9%;
+  color: #bcbcbc;
 }
 
-.input-box {
-  color: #bcbcbc;
-  padding-left: 30px;
+.input-box image {
+  position: relative;
+  top: 4px;
+  margin-right: 5px;
+}
+
+.input-box input {
+  flex: 1;
 }
 
 .cancel {
@@ -49,6 +59,27 @@
   line-height: 25px;
   color: #999;
 }
+
+.select-item {
+  position: absolute;
+  top: 30px;
+  right: 50%;
+  margin-right: -42px;
+  padding: 5px 0;
+  width: 84px;
+  background: #fff;
+  box-shadow: 0px 3px 11px #bfbfbf;
+  z-index: 999;
+}
+
+.select-item .items {
+  width: 100%;
+  text-align: center;
+  height: 25px;
+  line-height: 25px;
+}
+
+/*search end*/
 
 .select-item {
   position: absolute;
@@ -92,14 +123,10 @@
   padding-left: 22px;
 }
 
-.wrap-title .change {
-  background: url(/image/refresh_icons.png) no-repeat left center;
-  background-size: 24%;
-}
-
-.wrap-title .clear {
-  background: url(/image/clear_icons.png) no-repeat left center;
-  background-size: 19%;
+.wrap-title .oprate image {
+  position: relative;
+  top: 2px;
+  right: 4px;
 }
 
 .search-block {
@@ -113,21 +140,49 @@
   box-sizing: border-box;
   background: #f5f5f5;
   padding: 15rpx 15rpx;
-  margin-right: 5%;
   margin-bottom: 10px;
   border-radius: 8px;
   font-size: 11pt;
   white-space: nowrap;
-  width: 30%;
   text-overflow: ellipsis;
   overflow: hidden;
   text-align: center;
 }
 
-.search-block .item:nth-child(3n) {
-  margin-right: 0;
+.search-block text {
+  font-size: 10pt;
 }
 
-.search-block text {
-  font-size: 9pt;
+.search-block .his {
+  margin-right: 25rpx;
+}
+
+.hot-block {
+  display: block;
+}
+
+.hot-block .item-wrap {
+  display: block;
+}
+
+.hot-block .item {
+  display: inline-block;
+  box-sizing: border-box;
+  background: #f5f5f5;
+  padding: 15rpx 15rpx;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 11pt;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.hot-block text {
+  font-size: 10pt;
+}
+
+.hot-block .his {
+  margin-right: 25rpx;
 }

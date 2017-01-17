@@ -2,18 +2,19 @@
 <!--index.wxml-->
 <view class="content">
   <view class="zl-logo">
-    <image src="{{logosrc}}" mode="aspectFit"></image>
+    <image src="{{logosrc}}" mode="widthFix"></image>
   </view>
   <view class="searchbox">
+
     <!-- 条件选择 -->
     <view class="select-label" bindtap="directCondition">
-      <text>北京</text>
-      <!--<view class="arrow-down"></view>-->
+      <text>{{name? name : "北京"}}</text>
+      <image src="/image/arrow_down.png" mode="widthFix" style="width: 10px;"></image>
     </view>
     <view class="line"></view>
     <view class="input-box" bindtap="directSearch">
-    定额查询
-      <!--<input name="keywords" placeholder="定额查询" />-->
+      <image src="/image/search_icons.png" mode="widthFix" style="width: 18px;"></image>
+      <text>定额查询</text>
     </view>
   </view>
 </view>

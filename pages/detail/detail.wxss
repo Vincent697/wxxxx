@@ -1,0 +1,67 @@
+.detail {
+  padding: 10px 0;
+  font-size: 14px;
+  font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+
+.deta-name {
+  margin-top: 5px;
+}
+
+.deta-name, .deta-describe, .deta-unit {
+  line-height: 28px;
+  padding: 0 30rpx;
+}
+
+.con-view {
+  margin-top: 20px;
+}
+
+.con-view .title {
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  background: #ebebeb;
+}
+
+.con-biglist {
+  margin:  0 30rpx;
+  border: 1px solid #cacaca;
+  border-bottom: none
+}
+.con-view .con-biglist:last-child {
+  border-bottom: 1px solid #cacaca;
+}
+.con-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #cacaca;
+}
+
+.list-view1 {
+  padding: 5px;
+  width: 50%;
+  float: left;
+  border-right: 1px solid #cacaca;
+  box-sizing: border-box;
+}
+
+.list-view2 {
+  padding: 5px;
+  width: 25%;
+  float: left;
+  border-right: 1px solid #cacaca;
+  box-sizing: border-box;
+}
+
+.con-view .con-list:last-of-type {
+  border-bottom: none;
+}
+
+.norightbor {
+  border-right: none;
+}

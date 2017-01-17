@@ -1,7 +1,9 @@
 /**index.wxss**/
+
 page {
-  background: #ffffff;
+  background: #fff;
 }
+
 .content {
   display: block;
   height: 100%;
@@ -17,8 +19,9 @@ page {
 .zl-logo image {
   width: 70%;
   display: block;
-  margin: 0 auto;
+  margin: 260rpx auto 120rpx;
 }
+
 .searchbox {
   display: flex;
   flex-direction: row;
@@ -27,39 +30,40 @@ page {
   border-radius: 5px;
   box-shadow: 0px 0px 15px #d2d2d2;
 }
+
 .select-label {
-  height: 40px;
-  line-height: 40px;
-  padding-right: 25px;
-  background: url(/image/arrow_down.png) no-repeat right center;
-  background-size: 30%;
+  height: 30px;
+  line-height: 30px;
   font-size: 12pt;
-  font-weight: bold;
+  padding-right: 35rpx;
+  position: relative;
 }
-.line{
+
+.select-label image {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  margin-left: 5px;
+}
+
+.line {
   width: 1px;
   background: #bdbdbd;
-  margin:0 35rpx;
+  margin: 0 30rpx;
 }
+
 .input-box {
   flex: 1;
   display: block;
   border-radius: 5px;
-  height: 40px;
-  line-height: 40px;
-  background: url(/image/search_icons.png) no-repeat left center;
-  background-size: 9%;
-}
-
-.input-box input {
-  margin: 0 15rpx;
   height: 30px;
   line-height: 30px;
+  color: #bcbcbc;
+  font-size: 12pt;
 }
 
-.input-box {
-  color: #bcbcbc;
-  padding-left: 40px;
-  font-size: 12pt;
-  font-weight: bold;
+.input-box image {
+  margin-right: 10px;
+  position: relative;
+  top: 3px;
 }

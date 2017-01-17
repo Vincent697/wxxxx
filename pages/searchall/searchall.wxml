@@ -1,0 +1,47 @@
+<view class="content">
+
+  <!-- 搜索结果 -->
+  <view class="search-result">
+
+    <!-- 本 -->
+    <view class="result-item clearfix">
+      <view class="de-wrap">
+        <block wx:if="{{item==1}}">
+          <block wx:for="{{result}}" wx:for-item="item">
+            <view class="de-item" bindtap="godetail" data-itemsid="{{item.id}}" data-viewname="{{item.name}}">
+              <view class="de-info">
+                <view>{{item.name}}</view>
+                <view class="info-li">
+                  <view>定额号：{{item.code}}</view>
+                  <view>单位：{{item.unit}}</view>
+                  <view>基价：{{item.price}}</view>
+                </view>
+              </view>
+              <view class="detail-inf">
+                <image src="/image/arrow_right.png" style="width:14px;" mode="widthFix"></image>
+              </view>
+            </view>
+          </block>
+        </block>
+        <block wx:else>
+          <block wx:for="{{result}}" wx:for-item="items">
+            <view class="de-item" bindtap="godetail" data-itemsid="{{items.itemid}}" >
+              <view class="de-info">
+                <view>{{items.item.name}}</view>
+                <view>材料：{{items.name}}</view>
+                <view class="info-li">
+                  <view>编号：{{items.mid}} </view>
+                  <view>单位：{{items.unit}}</view>
+                  <view>单价：{{items.price}}</view>
+                </view>
+              </view>
+              <view class="detail-inf">
+                <image src="/image/arrow_right.png" style="width:14px;" mode="widthFix"></image>
+              </view>
+            </view>
+          </block>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

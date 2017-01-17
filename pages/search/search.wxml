@@ -1,32 +1,42 @@
-<view class="content">
+<view class="content" catchtap="closeSelect">
   <view class="search-panel">
     <view class="searchbox">
+
       <!-- 条件选择 -->
-      <view class="select-label">
-        <text bindtap="showSelect">{{defaultAct}}</text>
-        <view class="arrow-down"></view>
+      <view class="select-label" catchtap="showSelect">
+        <text bindtap="showSelect">{{defaultAct==1? '查项目':'查材料'}}</text>
+        <image src="/image/arrow_down.png" mode="widthFix" style="width: 10px;"></image>
         <view class="select-item" hidden="{{showselect ? true : false}}">
-          <view bindtap="selectAct" class="items" data-val="查项目">查项目</view>
-          <view bindtap="selectAct" class="items" data-val="查材料">查材料</view>
+          <view catchtap="selectAct" class="items" data-val="1">查项目</view>
+          <view catchtap="selectAct" class="items" data-val="0">查材料</view>
         </view>
       </view>
       <view class="line"></view>
       <view class="input-box">
-          <input name="keywords" placeholder="定额查询" bindconfirm="submitForm" />
+        <image src="/image/search_icons.png" mode="widthFix" style="width: 18px;"></image>
+        <input name="keywords" value="{{pword}}" placeholder="定额查询" placeholder-class="placeholer" bindconfirm="submitForm" bindinput="setPword" auto-focus />
       </view>
     </view>
-    <view class="cancel">取消</view>
+    <view class="cancel" bindtap="redirectIndex">取消</view>
   </view>
 
   <!-- 热门搜索 -->
   <view class="wrap hot-sarch">
     <view class="wrap-title">
       <text class="title">热门搜索</text>
-      <view class="oprate change">换一换</view>
+      <view class="oprate" bindtap="randomSelect">
+        <image src="/image/refresh_icons.png" mode="widthFix" style="width: 16px;"></image>换一换
+      </view>
     </view>
-    <view class="search-block">
+    <view class="hot-block">
       <block wx:if="{{hottopic.length>0}}">
-        <view bindtap="getval" wx:for="{{hottopic}}" wx:for-item="hot" class="item" hover-class="red">{{hot}}</view>
+        <block wx:for="{{hottopic}}" wx:for-item="hot" wx:for-index="idx">
+          <block wx:if="{{idx<3}}">
+            <view class="item-wrap">
+              <view bindtap="goDetail" class="item" data-itemsid="{{hot.id}}" data-bookid="{{hot.bookid}}" data-viewname="{{hot.name}}">{{hot.name}}</view>
+            </view>
+          </block>
+        </block>
       </block>
       <block wx:else>
         <text>暂无热门搜索</text>
@@ -38,14 +48,18 @@
   <view class="wrap history">
     <view class="wrap-title">
       <text class="title">搜索历史</text>
-      <view bindtap="clearhistory" class="oprate clear">清除全部</view>
+      <view bindtap="clearhistory" class="oprate">
+        <image src="/image/clear_icons.png" mode="widthFix" style="width: 16px;"></image>清除全部
+      </view>
     </view>
     <view class="search-block">
       <block wx:if="{{history.length>0}}">
-        <view wx:for="{{history}}" wx:for-item="his" class="item">{{his}}</view>
+        <block wx:for="{{history}}" wx:for-item="his">
+          <view class="item his" bindtap="selectSubmit" data-val="{{his}}">{{his}}</view>
+        </block>
       </block>
       <block wx:else>
-        <text>暂无热门搜索</text>
+        <text>暂无搜索历史</text>
       </block>
     </view>
   </view>
