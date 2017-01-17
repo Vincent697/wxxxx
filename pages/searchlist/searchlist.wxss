@@ -1,7 +1,9 @@
 page {
   background: #ebebeb;
 }
+
 /* search start*/
+
 .search-panel {
   display: flex;
   flex-direction: row;
@@ -80,6 +82,7 @@ page {
   height: 25px;
   line-height: 25px;
 }
+
 /*search end*/
 
 .search-result {
@@ -146,4 +149,9 @@ page {
 .get-all {
   text-align: center;
   padding: 30rpx;
+}
+
+.li-i {
+  font-size: 14px;
+  color: #666;
 }

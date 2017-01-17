@@ -3,7 +3,7 @@
     <view class="searchbox">
 
       <!-- 条件选择 -->
-      <view class="select-label" catchtap="showSelect">
+      <view class="select-label" catchtap="static">
         <text bindtap="showSelect">{{defaultAct==1? '查项目':'查材料'}}</text>
         <image src="/image/arrow_down.png" mode="widthFix" style="width: 10px;"></image>
         <view class="select-item" hidden="{{showselect ? true : false}}">

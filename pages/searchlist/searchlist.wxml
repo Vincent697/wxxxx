@@ -1,14 +1,14 @@
-<view class="content">
+<view class="content" catchtap="closeSelect">
   <view class="search-panel">
     <view class="searchbox">
 
       <!-- 条件选择 -->
-      <view class="select-label">
+      <view class="select-label" catchtap="static">
         <text bindtap="showSelect">{{defaultAct==1? '查项目': '查材料'}}</text>
         <image src="/image/arrow_down.png" mode="widthFix" style="width: 10px;"></image>
         <view class="select-item" hidden="{{showselect ? true : false}}">
-          <view bindtap="selectAct" class="items" data-val="1">查项目</view>
-          <view bindtap="selectAct" class="items" data-val="0">查材料</view>
+          <view catchtap="selectAct" class="items" data-val="1">查项目</view>
+          <view catchtap="selectAct" class="items" data-val="0">查材料</view>
         </view>
       </view>
       <view class="line"></view>
@@ -40,9 +40,9 @@
                 <view class="de-info">
                   <view>{{items.name}}</view>
                   <view class="info-li">
-                    <view>定额号：{{items.code}} </view>
-                    <view>单位：{{items.unit}}</view>
-                    <view>基价：{{items.price}}</view>
+                    <view class="li-i">定额号：{{items.code}} </view>
+                    <view class="li-i">单位：{{items.unit}}</view>
+                    <view class="li-i">基价：{{items.price}}</view>
                   </view>
                 </view>
                 <view class="detail-inf">
@@ -59,11 +59,11 @@
               <view class="de-item" bindtap="godetail" data-itemsid="{{items.itemid}}"  data-bookid="{{books.id}}" data-viewname="{{items.item.name}}" data-bookname="{{books.name}}">
                 <view class="de-info">
                   <view>{{items.item.name}}</view>
-                  <view>材料：{{items.name}}</view>
+                  <view class="li-i">材料：{{items.name}}</view>
                   <view class="info-li">
-                    <view>编号：{{items.code}} </view>
-                    <view>单位：{{items.unit}}</view>
-                    <view>单价：{{items.price}}</view>
+                    <view class="li-i">编号：{{items.code}} </view>
+                    <view class="li-i">单位：{{items.unit}}</view>
+                    <view class="li-i">单价：{{items.price}}</view>
                   </view>
                 </view>
                 <view class="detail-inf">

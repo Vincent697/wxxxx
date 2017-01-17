@@ -70,9 +70,9 @@ Page({
     let that = this;
     let bookid = e.currentTarget.dataset.bookid;
     let itemid = e.currentTarget.dataset.itemsid;
-    let viewname=e.currentTarget.dataset.viewname
+    let viewname = e.currentTarget.dataset.viewname
     wx.navigateTo({
-      url: '../detail/detail?book_id=' + bookid + '&item_id=' + itemid +'&viewname=' + viewname
+      url: '../detail/detail?book_id=' + bookid + '&item_id=' + itemid + '&viewname=' + viewname
     })
   },
   showAll: function (e) {
@@ -143,4 +143,9 @@ Page({
       data: history
     });
   },
+  closeSelect: function (e) {
+    this.setData({
+      showselect: true
+    });
+  }
 })

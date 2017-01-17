@@ -12,7 +12,8 @@ Page({
   onLoad: function (options) {
     var that=this;
     if(options.name==undefined){
-      options.name="北京"
+      options.name="北京";
+      options.id="100000"
     }
     this.setData({
       cid:options.id,

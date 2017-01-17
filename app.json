@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/condition/condition",
     "pages/search/search",
     "pages/searchlist/searchlist",
     "pages/searchall/searchall",
-    "pages/condition/condition",
     "pages/detail/detail"
   ],
   "window": {

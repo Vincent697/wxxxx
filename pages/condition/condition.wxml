@@ -1,6 +1,6 @@
 <view class="container condition">
   <view class="condition-top">
-    <text>当前选择：{{name? name : "北京"}}</text>
+    <text bindtap="selectCity"  data-show="1" id="{{cid}}" data-name="{{name}}">当前选择：{{name? name : "北京"}}</text>
   </view>
   <view wx:if="{{selectH.length > 0}}" class="select-his">
     <view class="select-his-title">最近访问</view>
